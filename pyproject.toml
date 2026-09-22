@@ -1,0 +1,32 @@
+[project]
+name = "local-ai-best"
+version = "0.1.0"
+description = "Консольный локальный чат: смотрит железо, качает GGUF с Hugging Face и запускает модель"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "petrolche12-creator" }]
+dependencies = [
+  "rich>=13.7.0",
+  "psutil>=5.9.0",
+  "huggingface_hub>=0.26.0",
+  "jinja2>=3.1.0",
+  "prompt_toolkit>=3.0.43",
+  "llama-cpp-python>=0.3.4",
+]
+
+[project.scripts]
+localai = "localai.app:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["localai*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
